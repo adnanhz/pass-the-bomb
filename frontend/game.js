@@ -15,6 +15,7 @@ let myPlayerDiv
 let gameEnded = false
 let choiceMadeAudio, goodDecisionAudio, badDecisionAudio
 
+document.querySelector('#reset').style.display = 'none'
 hideGameControls()
 
 webSocket.onopen = () => {
@@ -73,6 +74,9 @@ function hideGameControls() {
 function showGameControlsIfItsMyTurn() {
     document.querySelector('#pass').style.display = gameState.keeper === player.name ? 'block' : 'none'
     document.querySelector('#keep').style.display = gameState.keeper === player.name ? 'block' : 'none'
+    if(player.name && player.name.toLowerCase() === 'adnan') {
+        document.querySelector('#reset').style.display = 'block'
+    }
 
 }
 

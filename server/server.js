@@ -27,7 +27,7 @@ wss.on('connection', function connection(ws) {
             }
             gameState.players.push(player)
         } else if (action === 'pass') {
-            const item = Math.random() < 0.9 ? 'bomb' : 'star'
+            const item = Math.random() < 0.5 ? 'bomb' : 'star'
             gameState.item = item
             if (gameState.keeper === player.name) {
                 let remainingPlayers = gameState.players.filter((p) => p.name !== player.name && p.stars > 0)
