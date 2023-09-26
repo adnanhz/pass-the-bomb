@@ -31,7 +31,7 @@ wss.on('connection', function connection(ws) {
             const item = Math.random() < 0.5 ? 'bomb' : 'star'
             gameState.item = item
             if (gameState.keeper === player.name) {
-                let remainingPlayers = gameState.players.filter((p) => p.name !== player.name && p.stars > 0)
+                let remainingPlayers = gameState.players.filter((p) => p.stars > 0)
                 if(remainingPlayers.length > 0) {
                     let myIndex = remainingPlayers.findIndex(p => p.name === gameState.keeper)
                     let nextIndex = myIndex+1
