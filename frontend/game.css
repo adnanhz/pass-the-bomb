@@ -1,0 +1,181 @@
+@font-face {
+    font-family: Game Font;
+    src: url(font.otf);
+}
+
+* {
+    font-family: Game Font;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-color: #7CAE7A
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#timer {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 70%;
+    width: 100%;
+}
+
+#controls > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#name {
+    text-align: center;
+    margin: 10px;
+    font-size: 35px;
+    width: 90%;
+}
+
+#register {
+    all: unset;
+    background-color: #394053;
+    color: #839073;
+    padding: 10px;
+    text-align: center;
+    width: 60%;
+    font-size: 35px;
+    margin: 10px;
+}
+
+#reset {
+    all: unset;
+    color: #394053;
+    background-color: #839073;
+    padding: 10px;
+    text-align: center;
+    width: 60%;
+    font-size: 35px;
+    margin: 10px;
+}
+
+#pass {
+    all: unset;
+    color: #839073;
+    background-color: #4e4a59;
+    padding: 10px;
+    text-align: center;
+    width: 60%;
+    font-size: 35px;
+    margin: 10px;
+}
+
+#keep {
+    all: unset;
+    color: #839073;
+    background-color: #6e6362;
+    padding: 10px;
+    text-align: center;
+    width: 60%;
+    font-size: 35px;
+    margin: 10px;
+}
+
+#players {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.player {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+#winner {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.health {
+    text-align: center;
+    font-size: 10px;
+}
+
+.keeper {
+    font-size: 25px;
+    position: relative;
+}
+
+.keeper::after {
+    position: absolute;
+    top: 25px;
+    left: 70%;
+    font-size: 30px;
+
+}
+
+.keeper-bomb::after {
+    content: '💣'; 
+    /* animation: changeSize 0.5s infinite; */
+}
+
+.keeper-explosion::after {
+    content: '💥';
+}
+
+.keeper-star::after {
+    content: '⭐';
+    /* animation: changeSize 0.5s infinite; */
+}
+
+.dead {
+    opacity: 0.3;
+}
+
+.dead::before {
+    content: '💀';
+    font-size: 10px;
+    position: relative;
+    left: 40%;
+}
+
+#item {
+    font-size: 50px;
+    text-align: center;
+}
+
+@keyframes changeSize {
+    0% {
+        font-size: 30px;
+    }
+    50% {
+        font-size: 25px;
+    }
+    100% {
+        font-size: 30px;
+    }
+}
