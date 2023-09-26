@@ -10,6 +10,7 @@ let gameState = {
     ...initialGameState
 }
 
+
 const wss = new WebSocketServer({ port: 3500 });
 
 wss.on('connection', function connection(ws) {
@@ -32,8 +33,12 @@ wss.on('connection', function connection(ws) {
             if (gameState.keeper === player.name) {
                 let remainingPlayers = gameState.players.filter((p) => p.name !== player.name && p.stars > 0)
                 if(remainingPlayers.length > 0) {
-                    gameState.keeper = remainingPlayers.shift().name
-                    console.log('keeper changefd', gameState)
+                    let myIndex = remainingPlayers.findIndex(p => p.name === gameState.keeper)
+                    let nextIndex = myIndex+1
+                    if(nextIndex >= remainingPlayers.length) {
+                        nextIndex = 0
+                    }
+                    gameState.keeper = remainingPlayers[nextIndex].name
                 }
             }
         } else if (action === 'updatePlayer') {
